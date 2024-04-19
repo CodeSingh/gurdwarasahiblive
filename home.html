@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+<title>Gurdwara Sahib Live</title>
+<meta name="description" content="Experience live streams of Sikh Gurdwara Sahibs from around the world">
+<meta name="keywords" content="Sikh Gurdwara live livestream stream">
+<link rel="stylesheet" href="css/styles.css">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="http://w.soundcloud.com/player/api.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "QPSVbRhA6Aglw5zTK",
+      });
+   })();
+</script>
+
+</head>
+<body>
+    <div class="container">
+        <div>
+            <iframe class="responsive-iframe" id="gurdwaraliveplayer" src="https://www.youtube.com/embed/live_stream?channel=UCMqlz5xjRN29s51_Jddjo1Q" 
+                title="YouTube video player" frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share, muted" 
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+            </iframe>
+            
+        </div>
+
+        <div id="guestbook" class="hide">
+            <div>
+                <h3>Guestbook</h3>
+                <form id="formguestbook" method="post" >
+                    <label for="guestname">Name:</label><br /><input name="guestname" id="guestname" /><br />
+                    <label for="guestmessage">Message:</label><br /><textarea name="guestmessage" id="guestmessage" rows="3"></textarea><br/>
+                    <button name="btnsendmessage" id="btnsendmessage" >Send</button>
+                </form>
+            </div>
+
+            <span id="notificationguestbook"></span>
+        </div>
+        <div id="aboutus" class="hide">
+            <h3>About</h3>
+            <div>Experience live streams of Sikh Gurdwara Sahibs from around the world</div>
+            <div>Created with the <a href="https://www.youtube.com">Youtube</a></div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footerleft">
+            <div id="footertitle">GURDWARA SAHIB LIVE PLAYER <button id="nextvid" class="nextvid">Next</button>
+                <div id="channelinfo"><span id="channelname"></span></div>
+            </div>
+            
+            
+        </div>
+        <div class="footercentre">
+            <button id="message">Message</button>
+            <button id="about">About</button>
+        </div>
+        <div class="footerright">
+            <div id="footerdate"></div>
+            <div id="footerclock"></div>
+        </div>
+    </div>
+</body>
+<script src="js/scripts.js"></script>
+<script src="js/clock.js"></script>
+
+<script>    
+
+</script>
+</html>
