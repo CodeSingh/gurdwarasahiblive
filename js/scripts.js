@@ -13,7 +13,8 @@ jQuery(document).ready(function($) {
                     {'channelid': 'UC3ZsJ-3_rjgsAZXbjTfXZnA', 'name': 'Sri Guru Gobind Singh Gurdwara Manchester'},
                     {'channelid': 'UCnIaOhevdG-l_XcVqDBlC5Q', 'name': 'Gurdwara Yuba City-Gurbani Live USA'},
                     {'channelid': 'UCfNPTSmJYHAtBnTUdGfPR7A', 'name': 'Gurdwara Sahib Glenwood, Sydney'},
-                    {'channelid': 'UC17LEWEX-U0H5PdbPtmjFfA', 'name': 'Guru Nanak Sikh Gurdwara, Surrey'}
+                    {'channelid': 'UC17LEWEX-U0H5PdbPtmjFfA', 'name': 'Guru Nanak Sikh Gurdwara, Surrey'},
+                    {'channelid': 'UC5yAw8-hjqLz8gqIbN5vVGw', 'name': 'Gurdwara Dukh Niwaran Sahib Ludhiana'},
                   ]; 
 
   var inc = 0;
@@ -37,19 +38,6 @@ jQuery(document).ready(function($) {
     document.querySelector('div#aboutus').classList.toggle('hide');
   }
 
-  function videoIdFromLiveIFrame(iframeId)
-  {
-    var iframe = document.getElementById(iframeId);
-    var livevid = iframe.contentWindow.document.querySelector("link[href^='https://www.youtube.com/watch?v=']").href;
-
-    regExp = /.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=)([^#\&\?]*).*/;
-    videoId = livevid.match(regExp);
-    
-    if (videoId && videoId[1].length === 11) {
-        console.log(videoId[1]);
-    }
-  }
-
   function nextVid(isBtnPress){
     $('.videooverlay').addClass('videonoise');
     if(isBtnPress){
@@ -57,41 +45,9 @@ jQuery(document).ready(function($) {
       document.getElementById('channelname').innerText = liveStreams[inc].name;
       document.getElementById('gurdwaraliveplayer').src = "https://www.youtube.com/embed/live_stream?channel=" + liveStreams[inc].channelid + "&autoplay=1&muted=1";
       console.log("https://www.youtube.com/embed/live_stream?channel=" + liveStreams[inc].channelid + "&autoplay=1&muted=1");
-      console.log(videoIdFromLiveIFrame('gurdwaraliveplayer'));
+
     }
     setTimeout(function(){$('.videooverlay').removeClass('videonoise');}, 1000);
-  }
-
-  function findLiveStreamVideoId(channelId){
-    $.ajax({
-      url: 'https://www.youtube.com/channel/'+channelId,
-      type: "GET",
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Accept-Language': 'en-US, en;q=0.5'
-    }}).done(function(resp) {
-        
-        //one method to find live video
-        let n = resp.search(/\{"videoId[\sA-Za-z0-9:"\{\}\]\[,\-_]+BADGE_STYLE_TYPE_LIVE_NOW/i);
-  
-        //If found
-        if(n>=0){
-          let videoId = resp.slice(n+1, resp.indexOf("}",n)-1).split("\":\"")[1]
-          return videoId;
-        }
-  
-        //If not found, then try another method to find live video
-        n = resp.search(/https:\/\/i.ytimg.com\/vi\/[A-Za-z0-9\-_]+\/hqdefault_live.jpg/i);
-        if (n >= 0){
-          let videoId = resp.slice(n,resp.indexOf(".jpg",n)-1).split("/")[4]
-          return videoId;
-        }
-  
-        //No streams found
-        return "No live streams found";
-    }).fail(function() {
-      return "CORS Request blocked";
-    });
   }
 
   $('#formguestbook').on('submit', function(event) {
