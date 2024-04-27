@@ -7,8 +7,7 @@ jQuery(document).ready(function($) {
   ).then(
     function(json){
       liveStreams = json;
-      document.getElementById('channelname').innerText = liveStreams[inc].name;
-      document.getElementById('gurdwaraliveplayer').src = "https://www.youtube.com/embed/" + liveStreams[inc].channelid + "?autoplay=1&muted=1";
+      nextVid(false);
     }
   )
 
@@ -32,10 +31,10 @@ jQuery(document).ready(function($) {
     $('.videooverlay').addClass('videonoise');
     if(isBtnPress){
       inc= ++inc % liveStreams.length
-      document.getElementById('channelname').innerText = liveStreams[inc].name;
-      document.getElementById('gurdwaraliveplayer').src = "https://www.youtube.com/embed/" + liveStreams[inc].videoid + "?autoplay=1&muted=1&enablejsapi=1&version=3&origin=codesingh.github.io";
-      console.log("https://www.youtube.com/embed/" + liveStreams[inc].videoid + "?autoplay=1&muted=1&enablejsapi=1&version=3&origin=codesingh.github.io");
     }
+    document.getElementById('channelname').innerText = liveStreams[inc].name;
+    document.getElementById('gurdwaraliveplayer').src = "https://www.youtube.com/embed/" + liveStreams[inc].videoid + "?autoplay=1&muted=1&enablejsapi=1&version=3&origin=codesingh.github.io";
+    console.log("https://www.youtube.com/embed/" + liveStreams[inc].videoid + "?autoplay=1&muted=1&enablejsapi=1&version=3&origin=codesingh.github.io");
     setTimeout(function(){$('.videooverlay').removeClass('videonoise');}, 1000);
   }
 
