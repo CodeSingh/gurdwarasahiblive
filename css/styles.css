@@ -14,6 +14,7 @@ body{
     background-color: darkred;
     color: #FFF;
     border-color: maroon;
+    height: 100%;
 }
 
 #message{
@@ -21,6 +22,7 @@ body{
     background-color: darkslateblue;
     color: #FFF;
     border-color: darkslateblue;
+    height: 100%;
 }
 
 #about{
@@ -28,6 +30,7 @@ body{
     background-color: darkslateblue;
     color: #FFF;
     border-color: darkslateblue;
+    height: 100%;
 }
 
 .footer { 
