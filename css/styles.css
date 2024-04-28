@@ -10,11 +10,10 @@ body{
 
 #nextvid{
     font-family: fontVHS;
-
     background-color: darkred;
     color: #FFF;
     border-color: maroon;
-    height: 100%;
+    margin: 0 5px;
 }
 
 #message{
@@ -22,7 +21,7 @@ body{
     background-color: darkslateblue;
     color: #FFF;
     border-color: darkslateblue;
-    height: 100%;
+    margin: 0 5px;
 }
 
 #about{
@@ -30,7 +29,7 @@ body{
     background-color: darkslateblue;
     color: #FFF;
     border-color: darkslateblue;
-    height: 100%;
+    margin: 0 5px;
 }
 
 .footer { 
@@ -57,9 +56,23 @@ body{
     text-align: right;
 }
 
+#footerrow{
+    bottom: 0; 
+    left: 0; 
+    z-index: 10;
+    width:100%;
+
+    display: flex;                  /* establish flex container */
+    flex-direction: row;            /* default value; can be omitted */
+    flex-wrap: nowrap;              /* default value; can be omitted */
+    justify-content: space-between; /* switched from default (flex-start, see below) */
+}
+
 #footericon{
     float: left;
 }
+
+
 
 #footertitle{
     text-align: left;
