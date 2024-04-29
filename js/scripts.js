@@ -27,11 +27,19 @@ jQuery(document).ready(function($) {
     document.querySelector('div#aboutus').classList.toggle('hide');
   }
 
+  function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  }
+
   function nextVid(isBtnPress){
     $('.videooverlay').addClass('videonoise');
     if(isBtnPress){
       inc= ++inc % liveStreams.length
     }
+    else{
+      inc = getRandomInt(0, liveStreams.length - 1);
+    }
+
     document.getElementById('channelname').innerText = liveStreams[inc].name;
     document.getElementById('gurdwaraliveplayer').src = "https://www.youtube.com/embed/" + liveStreams[inc].videoid + "?autoplay=1&muted=1&enablejsapi=1&version=3&origin=codesingh.github.io";
     console.log("https://www.youtube.com/embed/" + liveStreams[inc].videoid + "?autoplay=1&muted=1&enablejsapi=1&version=3&origin=codesingh.github.io");
