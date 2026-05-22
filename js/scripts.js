@@ -2,7 +2,7 @@ jQuery(document).ready(function($) {
   var inc = 0;
 
   let liveStreams;
-  fetch('https://api.jsonsilo.com/public/cc00cc1e-47e2-41bf-8add-31ddd053f5b9').then(
+  fetch('https://gurdwarasahiblivestreams.sugi007.workers.dev/').then(
     function(u){ return u.json();}
   ).then(
     function(json){
